@@ -37,3 +37,8 @@ spring:
       initialize-schema: always
     job:
       name: job
+
+logging:
+  level:
+    root: INFO  # 애플리케이션 전체의 기본 로깅 레벨
+    org.springframework.batch: INFO  # Spring Batch와 관련된 로그 레벨
