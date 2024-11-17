@@ -1,6 +1,7 @@
+#여기서 분기 태움 profiles가 mysql일때 해당 spring설정을 찾아서 동작 시킴
 spring:
   profiles:
-    active: local
+    active: mysql
 
 ---
 spring:
@@ -14,6 +15,9 @@ spring:
       username: sa
       password:
       driver-class-name: org.h2.Driver
+  batch:
+    jdbc:
+      initialize-schema: embedded
 
 ---
 spring:
@@ -26,7 +30,10 @@ spring:
       jdbc-url: jdbc:mysql://localhost:3306/springbatchdb?useUnicode=true&characterEncoding=utf8
       username: root
       password: 1234
-      driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
   batch:
     jdbc:
       initialize-schema: always
+    job:
+      name: job
