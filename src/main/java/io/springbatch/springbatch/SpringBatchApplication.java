@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@EnableBatchProcessing
+@EnableBatchProcessing //Spring Batch를 돌리기 위한 어노테이션(선언)
 public class SpringBatchApplication {
 
     public static void main(String[] args) {
