@@ -63,6 +63,17 @@
             <version>8.0.33</version>
             <scope>runtime</scope>
         </dependency>
+        <!-- 스케줄러 의존성 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+        <!-- HttpAPI통신을 위한 의존성(client가 되어 통신) -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
     </dependencies>
 
 

@@ -1,4 +1,4 @@
-package io.springbatch.springbatch;
+package io.springbatch.springbatch.practice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;

@@ -1,4 +1,4 @@
-package io.springbatch.springbatch;
+package io.springbatch.springbatch.practice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -16,15 +16,15 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class JobConfiguration {
 
     @Bean
-    public Job job(JobRepository jobRepository,Step step1, Step step2){
+    public Job job2(JobRepository jobRepository,Step stepTest1, Step stepTest2){
         return new JobBuilder("job2",jobRepository)
-                .start(step1)
-                .next(step2)
+                .start(stepTest1)
+                .next(stepTest2)
                 .build();
     }
 
     @Bean
-    public Step step1(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager){
+    public Step stepTest1(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager){
         return new StepBuilder("step1",jobRepository)
                 .tasklet((contribution, chunkContext) -> {
                     System.out.println("step1 was execute.");
@@ -34,7 +34,7 @@ public class JobConfiguration {
     }
 
     @Bean
-    public Step step2(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager){
+    public Step stepTest2(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager){
         return new StepBuilder("step2",jobRepository)
                 .tasklet((contribution, chunkContext) -> {
                     System.out.println("step2 was execute.");

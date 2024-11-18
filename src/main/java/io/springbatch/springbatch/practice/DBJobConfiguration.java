@@ -1,4 +1,4 @@
-package io.springbatch.springbatch;
+package io.springbatch.springbatch.practice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -16,8 +16,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class DBJobConfiguration {
 
     @Bean
-    public Job job(JobRepository jobRepository, Step step1, Step step2){
-        return new JobBuilder("job",jobRepository)
+    public Job job0(JobRepository jobRepository, Step step1, Step step2){
+        return new JobBuilder("job0",jobRepository)
                 .start(step1)
                 .next(step2)
                 .build();
