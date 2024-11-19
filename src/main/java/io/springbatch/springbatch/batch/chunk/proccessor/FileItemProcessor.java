@@ -4,7 +4,7 @@ import io.springbatch.springbatch.batch.domain.Product;
 import io.springbatch.springbatch.batch.domain.ProductVO;
 import org.springframework.batch.item.ItemProcessor;
 
-public class FileItemProccessor implements ItemProcessor<ProductVO, Product> {
+public class FileItemProcessor implements ItemProcessor<ProductVO, Product> {
 
     @Override
     public Product process(ProductVO item) throws Exception {
