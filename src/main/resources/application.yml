@@ -36,7 +36,9 @@ spring:
     jdbc:
       initialize-schema: always
     job:
-      name: job2
+      names: fileJob
+      parameters:
+        requestDate: 20210101
 
 logging:
   level:

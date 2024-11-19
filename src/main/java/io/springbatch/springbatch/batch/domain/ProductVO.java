@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//파일에서 데이터를 읽어서 저장할 객체(DTO)
 public class ProductVO {
 
     private Long id;

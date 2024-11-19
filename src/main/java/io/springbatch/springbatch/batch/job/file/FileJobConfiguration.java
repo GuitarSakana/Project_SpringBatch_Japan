@@ -40,7 +40,7 @@ public class FileJobConfiguration {
     public Step fileStep(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager){
         return new StepBuilder("fileStep",jobRepository)
         .<ProductVO, Product>chunk(10,platformTransactionManager)
-                .reader(fileItemReader())//ProductVO를 읽음
+                .reader(fileItemReader(null))//ProductVO를 읽음
                 .processor(fileItemProcessor())//ProductVO를 Product로 변환
                 .writer(fileItemWriter())//Product를 가지고 저장,처리
                 .build();
