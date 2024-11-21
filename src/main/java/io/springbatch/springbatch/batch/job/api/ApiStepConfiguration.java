@@ -42,10 +42,12 @@ public class ApiStepConfiguration {
     }
 
     @Bean
-    public Step apiSlaveStep(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager){
+    public Step apiSlaveStep(JobRepository jobRepository
+            , PlatformTransactionManager platformTransactionManager
+            , ItemReader itemReader){
         return new StepBuilder("apiSlaveStep",jobRepository)
                 .<ProductVO, ProductVO>chunk(chunkSize,platformTransactionManager)
-                .reader(itemReader())
+                .reader(itemReader)
                 .processor(itemProcessor())
                 .writer(itemWriter())
                 .build();
@@ -62,7 +64,8 @@ public class ApiStepConfiguration {
 
     @Bean
     @StepScope
-    public ItemReader<ProductVO> itemReader(@Value("#{stepExecutionContext['product']}")ProductVO productVO)throws Exception{
+    public ItemReader<ProductVO> itemReader(
+            @Value("#{stepExecutionContext['product']}")ProductVO productVO)throws Exception{
         // @StepScope와 @Value를 사용하여,
         // 실행 중인 step의 ExecutionContext에서 'product' 값을 읽어와 ProductVO 객체를 전달합니다.
 
