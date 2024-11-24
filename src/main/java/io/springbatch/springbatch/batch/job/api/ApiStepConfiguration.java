@@ -50,9 +50,13 @@ public class ApiStepConfiguration {
 
     @Bean
     public TaskExecutor taskExecutor(){
+        // ThreadPoolTaskExecutor: 스레드풀 기반으로 작업을 처리하는 TaskExecutor 구현체
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
+        // setCorePoolSize: 기본적으로 유지되는 스레드 수를 설정 (스레드가 부족하지 않으면 추가 생성하지 않음)
         taskExecutor.setCorePoolSize(3);
+        // 요청이 많아 스레드가 부족할 경우, corePoolSize를 초과하여 maxPoolSize까지 생성
         taskExecutor.setMaxPoolSize(6);
+        // 스레드 이름이 "api-thread-1", "api-thread-2"와 같이 설정됨
         taskExecutor.setThreadNamePrefix("api-thread-");
         return taskExecutor;
     }
