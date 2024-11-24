@@ -1,6 +1,8 @@
 package io.springbatch.springbatch.batch.job.api;
 
 import io.springbatch.springbatch.batch.chunk.proccessor.ApiItemProcessor1;
+import io.springbatch.springbatch.batch.chunk.proccessor.ApiItemProcessor2;
+import io.springbatch.springbatch.batch.chunk.proccessor.ApiItemProcessor3;
 import io.springbatch.springbatch.batch.classifier.ProcessorClassifier;
 import io.springbatch.springbatch.batch.domain.ApiRequestVO;
 import io.springbatch.springbatch.batch.domain.Product;
