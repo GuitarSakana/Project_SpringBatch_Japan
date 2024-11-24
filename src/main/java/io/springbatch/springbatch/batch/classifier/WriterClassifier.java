@@ -10,17 +10,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WriterClassifier<C,T> implements Classifier<C,T> {
-    private Map<String, ItemWriter<ApiRequestVO>> wirteMap
+    private Map<String, ItemWriter<ApiRequestVO>> wirterMap
             = new HashMap<>();
 
     @Override
     public T classify(C classifiable) {
 
-        return (T)wirteMap.get(((ApiRequestVO)classifiable).getProductVO().getType());
+        return (T)wirterMap.get(((ApiRequestVO)classifiable).getProductVO().getType());
 
     }
 
-    public void setProcessorMap(Map<String, ItemWriter<ApiRequestVO>> writeMap) {
-        this.wirteMap = writeMap;
+    public void setwriterMap(Map<String, ItemWriter<ApiRequestVO>> writeMap) {
+        this.wirterMap = writeMap;
     }
 }

@@ -3,7 +3,11 @@ package io.springbatch.springbatch.batch.job.api;
 import io.springbatch.springbatch.batch.chunk.proccessor.ApiItemProcessor1;
 import io.springbatch.springbatch.batch.chunk.proccessor.ApiItemProcessor2;
 import io.springbatch.springbatch.batch.chunk.proccessor.ApiItemProcessor3;
+import io.springbatch.springbatch.batch.chunk.writer.ApiItemWriter1;
+import io.springbatch.springbatch.batch.chunk.writer.ApiItemWriter2;
+import io.springbatch.springbatch.batch.chunk.writer.ApiItemWriter3;
 import io.springbatch.springbatch.batch.classifier.ProcessorClassifier;
+import io.springbatch.springbatch.batch.classifier.WriterClassifier;
 import io.springbatch.springbatch.batch.domain.ApiRequestVO;
 import io.springbatch.springbatch.batch.domain.Product;
 import io.springbatch.springbatch.batch.domain.ProductVO;
@@ -16,11 +20,13 @@ import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.JdbcPagingItemReader;
 import org.springframework.batch.item.database.Order;
 import org.springframework.batch.item.database.support.MySqlPagingQueryProvider;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.support.ClassifierCompositeItemProcessor;
+import org.springframework.batch.item.support.ClassifierCompositeItemWriter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -128,6 +134,7 @@ public class ApiStepConfiguration {
         return reader;
     }
 
+
     @Bean
     public ItemProcessor itemProcessor(){
 
@@ -146,6 +153,27 @@ public class ApiStepConfiguration {
 
         processor.setClassifier(classifier);
         return processor;
+    }
+
+
+    @Bean
+    public ItemWriter itemWriter(){
+
+        ClassifierCompositeItemWriter<ApiRequestVO> writer
+                = new ClassifierCompositeItemWriter<>();
+
+        WriterClassifier<ApiRequestVO,ItemWriter<? super ApiRequestVO>> classifier
+                = new WriterClassifier();
+
+        Map<String, ItemWriter<ApiRequestVO>> writerMap = new HashMap<>();
+        writerMap.put("1", new ApiItemWriter1());
+        writerMap.put("2", new ApiItemWriter2());
+        writerMap.put("3", new ApiItemWriter3());
+
+        classifier.setwriterMap(writerMap);
+
+        writer.setClassifier(classifier);
+        return writer;
     }
 
 }
