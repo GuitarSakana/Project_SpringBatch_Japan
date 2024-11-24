@@ -4,6 +4,7 @@ import io.springbatch.springbatch.batch.domain.Product;
 import io.springbatch.springbatch.batch.domain.ProductVO;
 import io.springbatch.springbatch.batch.partition.ProductPartitioner;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.repository.JobRepository;
@@ -16,7 +17,9 @@ import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
@@ -31,14 +34,27 @@ public class ApiStepConfiguration {
 
     private int chunkSize = 10;
 
+    @SneakyThrows
     @Bean
-    public Step apiMasterStep(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager){
+    public Step apiMasterStep(JobRepository jobRepository
+            , PlatformTransactionManager platformTransactionManager
+            , ItemReader itemReader) throws Exception{
+
         return new StepBuilder("apiMasterStep",jobRepository)
-                .partitioner(apiSlaveStep().getName(),partitioner())// Partitioner를 설정하여 데이터를 분할 처리
-                .step(apiSlaveStep())// 분할된 각 파티션에서 실행될 실제 Step 설정
+                .partitioner(apiSlaveStep(jobRepository,platformTransactionManager,itemReader).getName(),partitioner())// Partitioner를 설정하여 데이터를 분할 처리
+                .step(apiSlaveStep(jobRepository,platformTransactionManager,itemReader))// 분할된 각 파티션에서 실행될 실제 Step 설정
                 .gridSize(3)// 데이터 파티션의 개수 지정 (3개의 파티션 생성)
                 .taskExecutor(taskExecutor())// 멀티스레딩 처리를 위한 TaskExecutor 설정
                 .build();
+    }
+
+    @Bean
+    public TaskExecutor taskExecutor(){
+        ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
+        taskExecutor.setCorePoolSize(3);
+        taskExecutor.setMaxPoolSize(6);
+        taskExecutor.setThreadNamePrefix("api-thread-");
+        return taskExecutor;
     }
 
     @Bean
