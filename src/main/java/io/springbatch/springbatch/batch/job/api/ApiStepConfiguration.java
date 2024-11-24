@@ -141,7 +141,11 @@ public class ApiStepConfiguration {
         processorMap.put("1", new ApiItemProcessor1());
         processorMap.put("2", new ApiItemProcessor2());
         processorMap.put("3", new ApiItemProcessor3());
-        return null;
+
+        classifier.setProcessorMap(processorMap);
+
+        processor.setClassifier(classifier);
+        return processor;
     }
 
 }
