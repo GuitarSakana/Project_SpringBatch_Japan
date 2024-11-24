@@ -3,6 +3,7 @@ package io.springbatch.springbatch.service;
 import io.springbatch.springbatch.batch.domain.ApiInfo;
 import io.springbatch.springbatch.batch.domain.ApiRequestVO;
 import io.springbatch.springbatch.batch.domain.ApiResponseVO;
+import org.springframework.batch.item.Chunk;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public abstract class AbstractApiService {
 
-    public ApiResponseVO service(List<?extends ApiRequestVO> apiRequest){
+    public ApiResponseVO service(Chunk<?extends ApiRequestVO> apiRequest){
 
         RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
 

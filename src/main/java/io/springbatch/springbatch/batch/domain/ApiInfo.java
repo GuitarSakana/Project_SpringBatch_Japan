@@ -2,6 +2,7 @@ package io.springbatch.springbatch.batch.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.batch.item.Chunk;
 
 import java.util.List;
 
@@ -10,6 +11,6 @@ import java.util.List;
 public class ApiInfo {
 
     private String url;
-    private List<? extends ApiRequestVO> apiRequestList;
+    private Chunk<? extends ApiRequestVO> apiRequestList;
 
 }
