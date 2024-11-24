@@ -1,31 +1,51 @@
 id,name,price,type
-1,Laptop,49000,2
-2,Camera,91000,1
-3,Tablet,16000,3
-4,Tablet,1000,3
-5,Headphones,86000,3
-6,Smartphone,42000,1
-7,Laptop,97000,1
-8,Smartphone,11000,1
-9,Laptop,36000,3
-10,Camera,25000,5
-11,Camera,88000,4
-12,Tablet,4000,2
-13,Headphones,99000,4
-14,Tablet,54000,5
-15,Tablet,71000,5
-16,Camera,20000,4
-17,Headphones,13000,1
-18,Camera,60000,1
-19,Camera,71000,4
-20,Smartphone,70000,5
-21,Tablet,49000,1
-22,Laptop,12000,4
-23,Laptop,83000,1
-24,Tablet,97000,1
-25,Headphones,85000,2
-26,Headphones,10000,3
-27,Laptop,11000,5
-28,Laptop,64000,5
-29,Smartphone,48000,3
-30,Tablet,69000,2
+1, Laptop, 49000, 2
+2, Camera, 91000, 1
+3, Tablet, 16000, 3
+4, Tablet, 1000, 3
+5, Headphones, 86000, 3
+6, Smartphone, 42000, 1
+7, Laptop, 97000, 1
+8, Smartphone, 11000, 1
+9, Laptop, 36000, 3
+10, Camera, 25000, 5
+11, Camera, 88000, 4
+12, Tablet, 4000, 2
+13, Headphones, 99000, 4
+14, Tablet, 54000, 5
+15, Tablet, 71000, 5
+16, Camera, 20000, 4
+17, Headphones, 13000, 1
+18, Camera, 60000, 1
+19, Camera, 71000, 4
+20, Smartphone, 70000, 5
+21, Tablet, 49000, 1
+22, Laptop, 12000, 4
+23, Laptop, 83000, 1
+24, Tablet, 97000, 1
+25, Headphones, 85000, 2
+26, Headphones, 10000, 3
+27, Laptop, 11000, 5
+28, Laptop, 64000, 5
+29, Smartphone, 48000, 3
+30, Tablet, 69000, 2
+31, Headphones, 89185, 1
+32, Tablet, 32255, 3
+33, Tablet, 86934, 1
+34, Tablet, 99166, 1
+35, Camera, 85519, 3
+36, Headphones, 51222, 3
+37, Smartphone, 39785, 3
+38, Smartphone, 52690, 3
+39, Smartphone, 34242, 3
+40, Headphones, 99324, 2
+41, Camera, 11510, 3
+42, Headphones, 98953, 1
+43, Smartphone, 9272, 2
+44, Camera, 21893, 1
+45, Laptop, 80137, 1
+46, Tablet, 30755, 3
+47, Headphones, 46190, 2
+48, Smartphone, 31183, 2
+49, Camera, 36422, 2
+50, Headphones, 91978, 1

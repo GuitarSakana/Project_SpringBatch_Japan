@@ -1,31 +1,31 @@
 id,name,price,type
-1,Camera,34000,3
-2,Smartphone,59000,5
-3,Camera,91000,2
-4,Headphones,68000,2
-5,Tablet,36000,5
-6,Headphones,61000,4
-7,Laptop,46000,3
-8,Laptop,62000,1
-9,Tablet,4000,4
-10,Smartphone,64000,2
-11,Smartphone,47000,2
-12,Laptop,58000,1
-13,Camera,38000,2
-14,Smartphone,3000,3
-15,Tablet,6000,2
-16,Tablet,18000,3
-17,Headphones,67000,1
-18,Headphones,59000,5
-19,Headphones,20000,3
-20,Headphones,75000,5
-21,Camera,61000,1
-22,Smartphone,86000,2
-23,Headphones,1000,2
-24,Tablet,62000,1
-25,Headphones,60000,1
-26,Smartphone,72000,1
-27,Camera,19000,5
-28,Tablet,43000,4
-29,Smartphone,82000,3
-30,Camera,8000,4
+1, Camera, 34000, 3
+2, Smartphone, 59000, 3
+3, Camera, 91000, 3
+4, Headphones, 68000, 2
+5, Tablet, 36000, 2
+6, Headphones, 61000, 3
+7, Laptop, 46000, 1
+8, Laptop, 62000, 2
+9, Tablet, 4000, 3
+10, Smartphone, 64000, 2
+11, Smartphone, 47000, 2
+12, Laptop, 58000, 3
+13, Camera, 38000, 1
+14, Smartphone, 3000, 1
+15, Tablet, 6000, 3
+16, Tablet, 18000, 2
+17, Headphones, 67000, 2
+18, Headphones, 59000, 3
+19, Headphones, 20000, 3
+20, Headphones, 75000, 1
+21, Camera, 61000, 2
+22, Smartphone, 86000, 1
+23, Headphones, 1000, 1
+24, Tablet, 62000, 2
+25, Headphones, 60000, 1
+26, Smartphone, 72000, 3
+27, Camera, 19000, 3
+28, Tablet, 43000, 3
+29, Smartphone, 82000, 3
+30, Camera, 8000, 3
